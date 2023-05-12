@@ -3,77 +3,11 @@ import Logo from "../../assets/Logo/eCart-Logo.png";
 import LoginPic from "../../assets/login.jpg";
 import { Link } from "react-router-dom";
 import AlertMessage from "../../Components/Alert/AlertMessage";
+import InputField from "../../Components/InputField/InputField";
+import PasswordField from "../../Components/PasswordField/PasswordField";
 import axios from "axios";
 
-//Import Material UI Components
-import TextField from "@mui/material/TextField";
-import IconButton from "@mui/material/IconButton";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { styled } from "@mui/system";
-
-//To chnage the outline of Material UI Fields
-const CustomTextField = styled(TextField)({
-  "& .MuiOutlinedInput-root": {
-    backgroundColor: "#000000", // Replace with your desired background color
-    "& fieldset": {
-      borderColor: "currentColor", // Use currentColor to inherit the outline color
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#FFFFFF", // Replace with your desired focused outline color
-    },
-    "& .MuiInputBase-input": {
-      color: "#FFFFFF", // Replace with your desired text color
-    },
-  },
-  "& .MuiInputLabel-root": {
-    color: "gray", // Replace with your desired default label color
-    "&.Mui-focused": {
-      color: "#FFFFFF", // Replace with your desired white label color when focused
-    },
-  },
-});
-
-const CustomFormControl = styled(FormControl)({
-  "& .MuiOutlinedInput-root": {
-    backgroundColor: "#000000", // Replace with your desired background color
-    "& fieldset": {
-      borderColor: "currentColor", // Use currentColor to inherit the outline color
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#FFFFFF", // Replace with your desired focused outline color
-    },
-    "& .MuiInputBase-input": {
-      color: "#FFFFFF", // Replace with your desired text color
-    },
-  },
-  "& .MuiInputLabel-root": {
-    color: "gray", // Replace with your desired default label color
-  },
-  "& .MuiInputLabel-root.Mui-focused": {
-    color: "#FFFFFF", // Replace with your desired white label color when focused
-  },
-  "& .MuiIconButton-root": {
-    color: "#FFFFFF", // Replace with your desired icon color
-  },
-});
-
 function Login() {
-  //To chnage the outline of Material UI Fields
-
-  //Show Password
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
   //Alert useState
   const [alertText, setAlertText] = React.useState("");
   const [responseReceived, setResponseReceived] = React.useState(false);
@@ -110,15 +44,8 @@ function Login() {
         } else {
           null;
         }
-      }, 1000);
+      }, 500);
     });
-  };
-
-  //Login when Enter Button is pressed on the keyboard
-  const handleKeyDown = (event) => {
-    if (event.keyCode === 13) {
-      loginUser();
-    }
   };
 
   return (
@@ -207,45 +134,27 @@ function Login() {
                 alertText={alertText}
               />
               <div className="pb-2 pt-4">
-                <CustomTextField
+                <InputField
                   id="email"
                   name="email"
                   type="email"
                   label="Email"
-                  variant="outlined"
-                  className={`w-full`}
                   value={user.email}
+                  page="login"
                   onChange={handleChange}
-                  onKeyDown={handleKeyDown}
+                  onKeyDown={true}
                 />
               </div>
               <div className="pb-2 pt-4">
-                <CustomFormControl variant="outlined" className="w-full">
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Password
-                  </InputLabel>
-                  <OutlinedInput
-                    id="password"
-                    name="password"
-                    value={user.password}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                    type={showPassword ? "text" : "password"}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                    label="Password"
-                  />
-                </CustomFormControl>
+                <PasswordField
+                  id="password"
+                  name="password"
+                  label="Password"
+                  value={user.password}
+                  onChange={handleChange}
+                  page="login"
+                  onKeyDown={true}
+                />
               </div>
               <div className="text-right text-gray-400 hover:underline hover:text-gray-100">
                 <a href="#">Forgot your password?</a>

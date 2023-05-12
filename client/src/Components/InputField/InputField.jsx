@@ -3,9 +3,9 @@ import TextField from "@mui/material/TextField";
 import { styled } from "@mui/system";
 
 //To chnage the outline of Material UI Fields
-const CustomTextField = styled(TextField)({
+const CustomTextField = styled(TextField)(({ page })=>({
   "& .MuiOutlinedInput-root": {
-    backgroundColor: "#1F2937", // Replace with your desired background color
+    backgroundColor: page === "login" ? "#000000" : "#1F2937", // Replace with your desired background color
     "& fieldset": {
       borderColor: "#FFFFFF", // Use currentColor to inherit the outline color
     },
@@ -25,9 +25,25 @@ const CustomTextField = styled(TextField)({
       color: "#FFFFFF", // Replace with your desired white label color when focused
     },
   },
-});
+}));
 
-function InputField({ id, name, type, label, value, onChange }) {
+function InputField({
+  id,
+  name,
+  type,
+  label,
+  value,
+  onChange,
+  page,
+  onKeyDown,
+}) {
+  //Login when Enter Button is pressed on the keyboard
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      loginUser();
+    }
+  };
+
   return (
     <CustomTextField
       id={id}
@@ -38,6 +54,8 @@ function InputField({ id, name, type, label, value, onChange }) {
       fullWidth
       value={value}
       onChange={onChange}
+      {...(page === "login" && onKeyDown ? { onKeyDown: handleKeyDown } : {})}
+      page={page}
     />
   );
 }

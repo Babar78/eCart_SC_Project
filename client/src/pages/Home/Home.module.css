@@ -1,0 +1,27 @@
+.button{
+    position: absolute;
+    top: 70%;
+    left: 14%;
+}
+.container{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+@media (min-width:375px) and (max-width:425px){
+    .button{
+        font-size: 0.7rem;
+    }
+}
+@media (max-width:361px){
+    .button{
+        font-size: 0.5rem;
+    }
+}
+@media (max-width:280px) {
+    .button{
+        font-size: 0.4rem;
+        padding: 5px;
+    }
+}

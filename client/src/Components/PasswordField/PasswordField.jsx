@@ -8,10 +8,9 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { styled } from "@mui/system";
 
-//To chnage the outline of Material UI Fields
-const CustomFormControl = styled(FormControl)({
+const CustomFormControl = styled(FormControl)(({ page }) => ({
   "& .MuiOutlinedInput-root": {
-    backgroundColor: "#1F2937", // Replace with your desired background color
+    backgroundColor: page === "login" ? "#000000" : "#1F2937", // Replace with your desired background color
     "& fieldset": {
       borderColor: "#FFFFFF", // Use currentColor to inherit the outline color
     },
@@ -34,9 +33,11 @@ const CustomFormControl = styled(FormControl)({
   "& .MuiIconButton-root": {
     color: "#FFFFFF", // Replace with your desired icon color
   },
-});
+}));
 
-function PasswordField({ id, name, label, value, onChange }) {
+function PasswordField({ id, name, label, value, onChange, page, onKeyDown }) {
+  //To chnage the outline of Material UI Fields
+
   //Show Password
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -46,14 +47,22 @@ function PasswordField({ id, name, label, value, onChange }) {
     event.preventDefault();
   };
 
+  //Login when Enter Button is pressed on the keyboard
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      loginUser();
+    }
+  };
+
   return (
-    <CustomFormControl variant="outlined" className="w-full">
+    <CustomFormControl variant="outlined" page={page} className="w-full">
       <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
       <OutlinedInput
         id={id}
         name={name}
         value={value}
         onChange={onChange}
+        {...(page === "login" && onKeyDown ? { onKeyDown: handleKeyDown } : {})}
         type={showPassword ? "text" : "password"}
         endAdornment={
           <InputAdornment position="end">
