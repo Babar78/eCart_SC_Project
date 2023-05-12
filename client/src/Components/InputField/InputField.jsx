@@ -1,0 +1,45 @@
+import React from "react";
+import TextField from "@mui/material/TextField";
+import { styled } from "@mui/system";
+
+//To chnage the outline of Material UI Fields
+const CustomTextField = styled(TextField)({
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#1F2937", // Replace with your desired background color
+    "& fieldset": {
+      borderColor: "#FFFFFF", // Use currentColor to inherit the outline color
+    },
+    "&:hover fieldset": {
+      borderColor: "#FFFFFF", // Replace with your desired hover outline color (same as focused color)
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#FFFFFF", // Replace with your desired focused outline color
+    },
+    "& .MuiInputBase-input": {
+      color: "#FFFFFF", // Replace with your desired text color
+    },
+  },
+  "& .MuiInputLabel-root": {
+    color: "gray", // Replace with your desired default label color
+    "&.Mui-focused": {
+      color: "#FFFFFF", // Replace with your desired white label color when focused
+    },
+  },
+});
+
+function InputField({ id, name, type, label, value, onChange }) {
+  return (
+    <CustomTextField
+      id={id}
+      name={name}
+      type={type}
+      label={label}
+      variant="outlined"
+      fullWidth
+      value={value}
+      onChange={onChange}
+    />
+  );
+}
+
+export default InputField;
