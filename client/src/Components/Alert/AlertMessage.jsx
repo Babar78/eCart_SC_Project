@@ -8,7 +8,8 @@ function AlertMessage({ responseReceived, alertText }) {
         <Alert
           severity={
             alertText === "Successfully Registered" ||
-            alertText === "Login Successful"
+            alertText === "Login Successful" ||
+            alertText === "Profile Updated Successfully!"
               ? "success"
               : "error"
           }

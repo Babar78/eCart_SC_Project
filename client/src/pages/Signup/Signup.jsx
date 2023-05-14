@@ -64,7 +64,6 @@ function Signup() {
   //Register User
   const registerUser = () => {
     setIsLoading(true);
-
     const {
       email,
       username,
@@ -205,8 +204,11 @@ function Signup() {
             />
           </div>
           <div>
-            <ImageUploadField selectedFile={selectedFile} onDragOver={handleDragOver} onDrop={handleDrop}
-            onChange={handleFileUpload}
+            <ImageUploadField
+              selectedFile={selectedFile}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+              onChange={handleFileUpload}
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductCard({cardInfo}) {
+function ProductCard({ cardInfo }) {
   return (
     <div className="flex flex-wrap gap-x-16 w-full justify-center px-16">
       {cardInfo.map((card, index) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../assets/Logo/eCart-Logo-white.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -27,18 +28,18 @@ function Footer() {
             </a>
             <div className="mt-4 lg:max-w-sm">
               <p className="text-sm text-gray-600">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam.
+                Shop the latest trends in clothing, shoes, and more at eCart.
+                Find affordable, stylish products to elevate your wardrobe.
               </p>
               <p className="mt-4 text-sm text-gray-600">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.
+                Enjoy fast shipping, secure payments, and exceptional customer
+                service. Elevate your style with eCart today!
               </p>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
             <div>
-              <p className="font-semibold tracking-wide text-orange-400">
+              <p className="font-bold text-lg tracking-wide text-orange-400">
                 Category
               </p>
               <ul className="mt-2 space-y-2">
@@ -47,7 +48,7 @@ function Footer() {
                     href="/"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    News
+                    Women's Clothing
                   </a>
                 </li>
                 <li>
@@ -55,7 +56,7 @@ function Footer() {
                     href="/"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    World
+                    Men's Clothing
                   </a>
                 </li>
                 <li>
@@ -63,7 +64,7 @@ function Footer() {
                     href="/"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Games
+                    Shoes
                   </a>
                 </li>
                 <li>
@@ -71,14 +72,61 @@ function Footer() {
                     href="/"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    References
+                    Accessories
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="transition-colors duration-300 text-white hover:text-gray-500"
+                  >
+                    Beauty
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide text-orange-400">
-                Cherry
+              <p className="font-bold text-lg tracking-wide text-orange-400">
+                Customer Service
+              </p>
+              <ul className="mt-2 space-y-2">
+                <li>
+                  <Link
+                    to="/contactus"
+                    className="transition-colors duration-300 text-white hover:text-gray-500"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="transition-colors duration-300 text-white hover:text-gray-500"
+                  >
+                    FAQs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="transition-colors duration-300 text-white hover:text-gray-500"
+                  >
+                    Shipping & Returns
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/trackorder"
+                    className="transition-colors duration-300 text-white hover:text-gray-500"
+                  >
+                    Track Order
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-bold text-lg tracking-wide text-orange-400">
+                Legal
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
@@ -86,7 +134,7 @@ function Footer() {
                     href="/"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Web
+                    Terms and Conditions
                   </a>
                 </li>
                 <li>
@@ -94,117 +142,7 @@ function Footer() {
                     href="/"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    eCommerce
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Business
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Entertainment
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Portfolio
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold tracking-wide text-orange-400">
-                Apples
-              </p>
-              <ul className="mt-2 space-y-2">
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Media
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Brochure
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Nonprofit
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Educational
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Projects
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold tracking-wide text-orange-400">
-                Business
-              </p>
-              <ul className="mt-2 space-y-2">
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Infopreneur
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Personal
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Wiki
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    className="transition-colors duration-300 text-white hover:text-gray-500"
-                  >
-                    Forum
+                    Privacy Policy
                   </a>
                 </li>
               </ul>

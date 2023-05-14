@@ -12,4 +12,10 @@ Router.post(
 
 Router.post("/login", userController.loginUser);
 
+Router.post(
+  "/updateProfile/:id",
+  upload.fields([{ name: "image", maxCount: 1 }]),
+  userController.updateProfile
+);
+
 module.exports = Router;

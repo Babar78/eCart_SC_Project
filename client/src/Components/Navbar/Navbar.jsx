@@ -9,17 +9,19 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import Avatar from "@mui/material/Avatar";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
 import CustomButton from "../CustomButton/CustomButton";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import PersonIcon from "@mui/icons-material/Person";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 import Searchbar from "../Searchbar/Searchbar";
 import logo from "../../assets/Logo/eCart-Logo.png";
 
-const pages = ["Products", "About Us", "Contact Us", "Track Order"];
+const pages = ["Products", "Accessories", "Contact Us", "Track Order"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -36,8 +38,17 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  //Handle Navbar Button Click
+  const handleButtonClick = (page) => {
+    if (page === "Products") {
+      window.location.href = "/products";
+    } else if (page === "About Us") {
+      window.location.href = "/about";
+    } else if (page === "Contact Us") {
+      window.location.href = "/contactus";
+    } else if (page === "Track Order") {
+      window.location.href = "/trackorder";
+    }
   };
 
   //Show/hide Login Button
@@ -107,7 +118,14 @@ function Navbar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={logo} alt="Logo" className="md:flex hidden w-48 mr-4" />
+          <div
+            className="hover:cursor-pointer"
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            <img src={logo} alt="Logo" className="md:flex hidden w-4/5" />
+          </div>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -139,7 +157,7 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleButtonClick(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -153,7 +171,7 @@ function Navbar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => handleButtonClick(page)}
                   sx={{
                     my: 2,
                     mr: 2,
@@ -199,11 +217,20 @@ function Navbar() {
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
                       >
-                        <img
-                          src={image}
-                          alt="Profile Picture"
-                          className="rounded-full w-10 mr-4"
-                        />
+                        <div
+                          className="rounded-full overflow-hidden"
+                          style={{ width: "2.5rem", height: "2.5rem" }} // Set the desired dimensions of the container div
+                        >
+                          <img
+                            src={image}
+                            alt="Profile Picture"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }} // Make the image fill the container and cover it
+                          />
+                        </div>
                       </IconButton>
                     </Tooltip>
                   </Box>
@@ -256,12 +283,34 @@ function Navbar() {
                       <p className="text-gray-500">{email}</p>
                     </div>
 
-                    <Divider />
-                    <MenuItem onClick={handleClose}>
-                      <Avatar /> Profile
+                    <Divider sx={{ margin: "10px 0" }} />
+                    <MenuItem
+                      onClick={() => {
+                        window.location.href = "/profile";
+                      }}
+                    >
+                      <PersonIcon sx={{ marginRight: "10px", color: "gray" }} />{" "}
+                      Profile
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Avatar /> My account
+                    <MenuItem
+                      onClick={() => {
+                        window.location.href = "/editprofile";
+                      }}
+                    >
+                      <ManageAccountsIcon
+                        sx={{ marginRight: "10px", color: "gray" }}
+                      />
+                      Edit Profile
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        window.location.href = "/account";
+                      }}
+                    >
+                      <AdminPanelSettingsIcon
+                        sx={{ marginRight: "10px", color: "gray" }}
+                      />{" "}
+                      My Account
                     </MenuItem>
                     <MenuItem onClick={handleLogout}>
                       <ListItemIcon>

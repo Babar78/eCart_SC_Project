@@ -1,7 +1,6 @@
 import React from "react";
 
-function ImageUploadField({selectedFile, onDragOver, onDrop, onChange}) {
-
+function ImageUploadField({ selectedFile, onDragOver, onDrop, onChange }) {
   return (
     <div className="mt-1 flex flex-col justify-center px-6 py-5 border-2 border-gray-300 border-dashed rounded-md">
       <div
