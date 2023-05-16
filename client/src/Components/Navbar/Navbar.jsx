@@ -21,6 +21,10 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import Searchbar from "../Searchbar/Searchbar";
 import logo from "../../assets/Logo/eCart-Logo.png";
 
+import { Link } from "react-router-dom";
+
+import CartBadge from "../CartBadge/CartBadge";
+
 const pages = ["Products", "Accessories", "Contact Us", "Track Order"];
 
 function Navbar() {
@@ -118,14 +122,11 @@ function Navbar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <div
-            className="hover:cursor-pointer"
-            onClick={() => {
-              window.location.href = "/";
-            }}
-          >
-            <img src={logo} alt="Logo" className="md:flex hidden w-4/5" />
-          </div>
+          <Link to={"/"}>
+            <div className="hover:cursor-pointer">
+              <img src={logo} alt="Logo" className="md:flex hidden w-4/5" />
+            </div>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -191,6 +192,10 @@ function Navbar() {
               ))}
             </div>
             <Searchbar />
+          </Box>
+
+          <Box sx={{ marginRight: 2 }}>
+            <CartBadge />
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -284,34 +289,33 @@ function Navbar() {
                     </div>
 
                     <Divider sx={{ margin: "10px 0" }} />
-                    <MenuItem
-                      onClick={() => {
-                        window.location.href = "/profile";
-                      }}
-                    >
-                      <PersonIcon sx={{ marginRight: "10px", color: "gray" }} />{" "}
-                      Profile
-                    </MenuItem>
-                    <MenuItem
-                      onClick={() => {
-                        window.location.href = "/editprofile";
-                      }}
-                    >
-                      <ManageAccountsIcon
-                        sx={{ marginRight: "10px", color: "gray" }}
-                      />
-                      Edit Profile
-                    </MenuItem>
-                    <MenuItem
-                      onClick={() => {
-                        window.location.href = "/account";
-                      }}
-                    >
-                      <AdminPanelSettingsIcon
-                        sx={{ marginRight: "10px", color: "gray" }}
-                      />{" "}
-                      My Account
-                    </MenuItem>
+                    <Link to={"/profile"}>
+                      <MenuItem>
+                        <PersonIcon
+                          sx={{ marginRight: "10px", color: "gray" }}
+                        />{" "}
+                        Profile
+                      </MenuItem>
+                    </Link>
+
+                    <Link to={"/editprofile"}>
+                      <MenuItem>
+                        <ManageAccountsIcon
+                          sx={{ marginRight: "10px", color: "gray" }}
+                        />
+                        Edit Profile
+                      </MenuItem>
+                    </Link>
+
+                    <Link to={"/account"}>
+                      <MenuItem>
+                        <AdminPanelSettingsIcon
+                          sx={{ marginRight: "10px", color: "gray" }}
+                        />{" "}
+                        My Account
+                      </MenuItem>
+                    </Link>
+
                     <MenuItem onClick={handleLogout}>
                       <ListItemIcon>
                         <Logout fontSize="small" />

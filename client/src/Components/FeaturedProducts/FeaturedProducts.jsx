@@ -3,35 +3,78 @@ import ProductCard from "../ProductCard/ProductCard";
 
 function FeaturedProducts() {
   //Cards Details
+  // const cardInfo = [
+  //   {
+  //     image: "https://cf.shopee.co.id/file/09b084ea979115a9b84ab6a1a1425f5f",
+  //     title: "GUCCI JACKET 1",
+  //     price: "$65",
+  //   },
+  //   {
+  //     image:
+  //       "https://s.alicdn.com/@sc04/kf/U75e68f0a961d499ea8a4868fa717ede6P.jpg_300x300.jpg",
+  //     title: "GUCCI JACKET 2",
+  //     price: "$75",
+  //   },
+  //   {
+  //     image:
+  //       "https://images-eu.ssl-images-amazon.com/images/I/61lCaTXvyfL._AC_UL330_SR330,330_.jpg",
+  //     title: "GUCCI JACKET 3",
+  //     price: "$85",
+  //   },
+  //   {
+  //     image:
+  //       "https://ae01.alicdn.com/kf/Hbe69d516859a417ba044ef67aa88b8b49.jpg?width=790&height=905&hash=1695",
+  //     title: "GUCCI JACKET 4",
+  //     price: "$95",
+  //   },
+  // ];
   const cardInfo = [
     {
+      id: 1,
       image: "https://cf.shopee.co.id/file/09b084ea979115a9b84ab6a1a1425f5f",
-      title: "GUCCI JACKET 1",
-      price: "$65",
+      description: "Premium Quality Black Jacket",
+      style: "Minimal Design",
+      size: "Small",
+      color: "Red",
+      price: "65",
     },
     {
+      id: 2,
       image:
-        "https://s.alicdn.com/@sc04/kf/U75e68f0a961d499ea8a4868fa717ede6P.jpg_300x300.jpg    ",
-      title: "GUCCI JACKET 2",
-      price: "$75",
+        "https://s.alicdn.com/@sc04/kf/U75e68f0a961d499ea8a4868fa717ede6P.jpg_300x300.jpg",
+      description: "Premium Quality Red Jacket",
+      style: "Modern Design",
+      size: "Medium",
+      color: "Blue",
+      price: "75",
     },
     {
+      id: 3,
       image:
         "https://images-eu.ssl-images-amazon.com/images/I/61lCaTXvyfL._AC_UL330_SR330,330_.jpg",
-      title: "GUCCI JACKET 3",
-      price: "$85",
+      description: "Premium Quality Blue Jacket",
+      style: "Classic Design",
+      size: "Large",
+      color: "Black",
+      price: "85",
     },
     {
+      id: 4,
       image:
-        "https://ae01.alicdn.com/kf/Hbe69d516859a417ba044ef67aa88b8b49.jpg?width=790&height=905&hash=1695",
-      title: "GUCCI JACKET 4",
-      price: "$95",
+        "https://s.alicdn.com/@sc04/kf/U75e68f0a961d499ea8a4868fa717ede6P.jpg_300x300.jpg",
+      description: "Premium Quality Grenn Jacket",
+      style: "Vintage Design",
+      size: "Extra Large",
+      color: "Green",
+      price: "95",
     },
   ];
 
   return (
     <>
-    <h1 className="mt-20 mb-4 px-24 text-3xl font-bold text-gray-700">Featured Collection</h1>
+      <h1 className="mt-20 mb-4 px-24 text-3xl font-bold text-gray-700">
+        Featured Collection
+      </h1>
       <div className="flex justify-center">
         <div className="inline-flex rounded-md shadow-sm my-4" role="group">
           <button

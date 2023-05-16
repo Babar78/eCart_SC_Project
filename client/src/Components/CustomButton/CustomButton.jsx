@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "@mui/system";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const LoginButton = styled(Button)(({ theme }) => ({
   color: "#F79015",
@@ -13,13 +14,10 @@ const LoginButton = styled(Button)(({ theme }) => ({
 }));
 
 function CustomButton() {
-  const handleLogin = () => {
-    window.location.href = "/login";
-  };
   return (
-    <LoginButton variant="outlined" onClick={handleLogin}>
-      Login
-    </LoginButton>
+    <Link to="/login">
+      <LoginButton variant="outlined">Login</LoginButton>
+    </Link>
   );
 }
 

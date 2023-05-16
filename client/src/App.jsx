@@ -9,6 +9,7 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import Profile from "./pages/Profile/Profile";
 import AccountSetting from "./pages/AccountSetting/AccountSetting";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/account" element={<AccountSetting />}></Route>
           <Route path="/editprofile" element={<EditProfile />}></Route>
+          <Route path="/checkout" element={<Checkout />}></Route>
         </Routes>
       </BrowserRouter>
     </>
