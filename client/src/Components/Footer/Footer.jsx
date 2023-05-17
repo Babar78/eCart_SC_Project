@@ -44,44 +44,44 @@ function Footer() {
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Women's Clothing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Men's Clothing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Shoes
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Accessories
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Beauty
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -99,20 +99,20 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/FAQs"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     FAQs
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/shiping-and-return"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Shipping & Returns
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link
@@ -130,20 +130,20 @@ function Footer() {
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to={"/terms-and-conditions"}
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Terms and Conditions
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="/privacy-policy"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

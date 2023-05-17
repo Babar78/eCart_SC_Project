@@ -11,10 +11,11 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const item = action.payload;
       const existingItem = state.cartItems.find((x) => x.id === item.id);
+      const quantityToAdd = item.quantity || 1; // Set default quantity to 1 if not provided
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantityToAdd;
       } else {
-        state.cartItems.push({ ...item, quantity: 1 });
+        state.cartItems.push({ ...item, quantity: quantityToAdd });
       }
     },
     updateCartItemQuantity: (state, action) => {

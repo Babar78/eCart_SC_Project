@@ -10,6 +10,13 @@ import Profile from "./pages/Profile/Profile";
 import AccountSetting from "./pages/AccountSetting/AccountSetting";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import Checkout from "./pages/Checkout/Checkout";
+import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import FAQs from "./pages/FAQs/FAQs";
+import ShipingAndReturn from "./pages/ShipingAndReturn/ShipingAndReturn";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Products from "./pages/Products/Products";
+import ProductDetail from "./pages/PoductDetail/ProductDetail";
 
 function App() {
   return (
@@ -25,6 +32,19 @@ function App() {
           <Route path="/account" element={<AccountSetting />}></Route>
           <Route path="/editprofile" element={<EditProfile />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          ></Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+          <Route path="/FAQs" element={<FAQs />}></Route>
+          <Route
+            path="/shiping-and-return"
+            element={<ShipingAndReturn />}
+          ></Route>
+          <Route path="/aboutus" element={<AboutUs />}></Route>
+          <Route path="/products" element={<Products />}></Route>
+          <Route path="/product-detail/:id" element={<ProductDetail />}></Route>
         </Routes>
       </BrowserRouter>
     </>

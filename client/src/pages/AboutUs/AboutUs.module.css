@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Brittney Signature";
+  src: url("../../fonts/BrittanySignature.ttf") format("truetype");
+}
+
+.backgroundContainer {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 80vh; /* Adjust the height as per your preference */
+  overflow: hidden;
+}
+
+.backgroundImage {
+  /* Apply brightness filter to reduce image brightness */
+  filter: brightness(30%); /* Ensure the image fills the container */
+  width: auto;
+  object-fit: cover;
+}
+
+
+.overlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3vw; /* Adjust the font size using viewport units */
+  font-weight: bold;
+  font-family: "Brittney Signature", cursive;
+  color: #ffffff;
+  /* Add any other styling properties for the overlay text */
+}
+

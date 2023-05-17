@@ -157,11 +157,26 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handleButtonClick(page)}>
-                  <Typography textAlign="center">{page}</Typography>
+              <Link to={"/products"}>
+                <MenuItem>
+                  <Typography textAlign="center">Products</Typography>
                 </MenuItem>
-              ))}
+              </Link>
+              <Link to={"/aboutus"}>
+                <MenuItem>
+                  <Typography textAlign="center">About Us</Typography>
+                </MenuItem>
+              </Link>
+              <Link to={"/contactus"}>
+                <MenuItem>
+                  <Typography textAlign="center">Contact Us</Typography>
+                </MenuItem>
+              </Link>
+              <Link to={"/trackorder"}>
+                <MenuItem>
+                  <Typography textAlign="center">Track Order</Typography>
+                </MenuItem>
+              </Link>
             </Menu>
           </Box>
           <div className="flex justify-center w-full">
@@ -169,10 +184,8 @@ function Navbar() {
           </div>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <div className="flex mr-20">
-              {pages.map((page) => (
+              <Link to={"/products"}>
                 <Button
-                  key={page}
-                  onClick={() => handleButtonClick(page)}
                   sx={{
                     my: 2,
                     mr: 2,
@@ -187,9 +200,69 @@ function Navbar() {
                     },
                   }}
                 >
-                  {page}
+                  Products
                 </Button>
-              ))}
+              </Link>
+
+              <Link to={"/aboutus"}>
+                <Button
+                  sx={{
+                    my: 2,
+                    mr: 2,
+                    color: "white",
+                    display: "block",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "100%",
+                    "&:hover": {
+                      color: "#F79015",
+                    },
+                  }}
+                >
+                  About Us
+                </Button>
+              </Link>
+
+              <Link to={"/contactus"}>
+                <Button
+                  sx={{
+                    my: 2,
+                    mr: 2,
+                    color: "white",
+                    display: "block",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "100%",
+                    "&:hover": {
+                      color: "#F79015",
+                    },
+                  }}
+                >
+                  Contact Us
+                </Button>
+              </Link>
+
+              <Link to={"/trackorder"}>
+                <Button
+                  sx={{
+                    my: 2,
+                    mr: 2,
+                    color: "white",
+                    display: "block",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "100%",
+                    "&:hover": {
+                      color: "#F79015",
+                    },
+                  }}
+                >
+                  Track Order
+                </Button>
+              </Link>
             </div>
             <Searchbar />
           </Box>
