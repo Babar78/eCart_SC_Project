@@ -141,13 +141,18 @@ function EditProfile() {
                 <p className="text-3xl sm:text-xl md:text-2xl font-medium text-white">
                   {username}
                 </p>
-                <p className="sm:text-base md:text-lg text-white">{email}</p>
-                <p className="sm:text-base md:text-lg text-white">{phone}</p>
+                <p className="sm:text-base md:text-lg text-white">
+                  {localStorage.getItem("email")}
+                </p>
+                <p className="sm:text-base md:text-lg text-white">
+                  {localStorage.getItem("phone")}
+                </p>
               </div>
             </div>
             <div className="mt-4">
               <p className="sm:text-base md:text-lg text-white">
-                {address}, {country}
+                {localStorage.getItem("address")},{" "}
+                {localStorage.getItem("country")}
               </p>
             </div>
           </div>
@@ -182,6 +187,7 @@ function EditProfile() {
                 variant="filled"
                 value={email}
                 className="w-full"
+                onChange={handleInputChange}
               />
               <TextField
                 id="password"

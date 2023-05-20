@@ -42,19 +42,6 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  //Handle Navbar Button Click
-  const handleButtonClick = (page) => {
-    if (page === "Products") {
-      window.location.href = "/products";
-    } else if (page === "About Us") {
-      window.location.href = "/about";
-    } else if (page === "Contact Us") {
-      window.location.href = "/contactus";
-    } else if (page === "Track Order") {
-      window.location.href = "/trackorder";
-    }
-  };
-
   //Show/hide Login Button
 
   const [username, setUsername] = React.useState("");
@@ -68,27 +55,21 @@ function Navbar() {
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    const storedEmail = localStorage.getItem("email");
-    const storedPassword = localStorage.getItem("password");
-    const storedCountry = localStorage.getItem("country");
-    const storedAddress = localStorage.getItem("address");
-    const storedPhone = localStorage.getItem("phone");
     const storedUserId = localStorage.getItem("userId");
-    const storedImage = localStorage.getItem("image");
+  
     // Check if username and email exist in local storage
     if (storedUserId) {
-      setUsername(storedUsername);
-      setEmail(storedEmail);
-      setPassword(storedPassword);
-      setCountry(storedCountry);
-      setAddress(storedAddress);
-      setPhone(storedPhone);
+      setUsername(localStorage.getItem("username"));
+      setEmail(localStorage.getItem("email"));
+      setPassword(localStorage.getItem("password"));
+      setCountry(localStorage.getItem("country"));
+      setAddress(localStorage.getItem("address"));
+      setPhone(localStorage.getItem("phone"));
       setUserId(storedUserId);
-      setImage(storedImage);
+      setImage(localStorage.getItem("image"));
       setLoggedIn(true);
     }
-  }, []);
+  }, [userId]);
 
   const handleLogout = () => {
     // Perform logout logic
@@ -100,7 +81,7 @@ function Navbar() {
     localStorage.removeItem("phone");
     localStorage.removeItem("userId");
     localStorage.removeItem("image");
-    window.location.reload();
+    window.location.href = "/";
     setLoggedIn(false);
   };
 

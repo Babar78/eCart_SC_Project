@@ -12,6 +12,8 @@ import LockIcon from "@mui/icons-material/Lock";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
+import { Link } from "react-router-dom";
+
 export default function Profile() {
   //useState for getting the user data
   const [image, setImage] = React.useState("");
@@ -69,16 +71,13 @@ export default function Profile() {
             <div className="flex">
               <div className="flex-1"></div>
               <Tooltip title="Edit Profile">
-                <div
-                  className="rounded-full bg-orange-400 p-1 hover:shadow-lg mr-10 -mt-6 hover:cursor-pointer"
-                  onClick={() => {
-                    window.location.href = "/editprofile";
-                  }}
-                >
-                  <IconButton>
-                    <EditIcon sx={{ color: "white", fontSize: 30 }} />
-                  </IconButton>
-                </div>
+                <Link to={"/editprofile"}>
+                  <div className="rounded-full bg-orange-400 p-1 hover:shadow-lg mr-10 -mt-6 hover:cursor-pointer">
+                    <IconButton>
+                      <EditIcon sx={{ color: "white", fontSize: 30 }} />
+                    </IconButton>
+                  </div>
+                </Link>
               </Tooltip>
             </div>
             <Divider sx={{ margin: 4 }} />

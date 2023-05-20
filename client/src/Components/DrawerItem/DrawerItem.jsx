@@ -3,10 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { updateCartItemQuantity } from "../../store/cartSlice"; // Update the import path
+import { updateCartItemQuantity, removeCartItem } from "../../store/cartSlice";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 function DrawerItem({ item }) {
+
   const cartItems = useSelector((state) => state.cart.cartItems);
+
+  
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -28,18 +32,22 @@ function DrawerItem({ item }) {
     );
   };
 
+  const handleRemoveItem = () => {
+    dispatch(removeCartItem(item.id));
+  };
+
   return (
     <div className="flex bg-gray-100 items-center m-2 border shadow">
-      <div
-        className="p-2"
-        style={{
-          minWidth: "200px",
-        }}
-      >
+      <div className="p-2" style={{ minWidth: "200px" }}>
         <img src={item.image} alt="Item Selected" />
       </div>
       <div className="w-full">
-        <h1 className="font-bold ">{item.description}</h1>
+        <div className="flex justify-end pr-2 mb-3">
+          <IconButton size="small" onClick={handleRemoveItem}>
+            <CancelIcon />
+          </IconButton>
+        </div>
+        <h1 className="font-bold">{item.description}</h1>
         <div className="my-4">
           <p className="text-gray-400 text-medium font-medium">
             Style:
@@ -53,7 +61,7 @@ function DrawerItem({ item }) {
             <span className="text-black font-normal">{item.color}</span>
           </p>
         </div>
-        <div className="flex justify-between items-center px-1">
+        <div className="flex justify-between items-center px-1 mb-2">
           <div className="flex bg-gray-200 items-center p-1">
             <IconButton size="small" onClick={() => handleQuantityChange(-1)}>
               <RemoveIcon />

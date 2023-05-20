@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { updateCartItemQuantity } from "../../store/cartSlice";
+import { updateCartItemQuantity, removeCartItem } from "../../store/cartSlice";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 function CartItem({ item }) {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -28,6 +29,10 @@ function CartItem({ item }) {
     );
   };
 
+  const handleRemoveItem = () => {
+    dispatch(removeCartItem(item.id));
+  };
+
   return (
     <div className="flex bg-gray-100 items-center m-2 border shadow">
       <div
@@ -40,6 +45,11 @@ function CartItem({ item }) {
         <img src={item.image} alt="" />
       </div>
       <div className="md:px-10 px-2 sm:px-8 my-2 w-full mr-20">
+        <div className="flex justify-end pr-2 mb-3">
+          <IconButton size="small" onClick={handleRemoveItem}>
+            <CancelIcon />
+          </IconButton>
+        </div>
         <h1 className="font-bold md:text-3xl text-lg">{item.description}</h1>
         <div className="sm:flex my-8 sm:flex-wrap justify-between">
           <p className="text-gray-400 text-sm md:text-medium lg:text-xl font-medium">

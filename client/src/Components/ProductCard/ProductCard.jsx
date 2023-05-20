@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
 import { Link } from "react-router-dom";
 
+
 function ProductCard({ cardInfo, activeButton }) {
+  
   const dispatch = useDispatch();
 
   const handleAddToCart = (item) => {

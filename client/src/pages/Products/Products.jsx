@@ -304,11 +304,93 @@ function Products() {
     },
   ];
 
+  //Active Button State
+  const [activeButton, setActiveButton] = useState("all");
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+  };
+
   return (
     <>
       <Navbar />
-      <div className="mt-48">
-        <ProductCard cardInfo={cardInfo} activeButton="all" />
+      <div className="mt-48 flex divide-x-2">
+        <div className="flex-1  text-center mx-20">
+          <h1 className="text-3xl font-bold text-[#1F2937]">Product Filter</h1>
+          <div className="flex justify-center flex-col mt-4">
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "all"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("all")}
+            >
+              All
+            </button>
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "jacket"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("jacket")}
+            >
+              Jackets
+            </button>
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "shirt"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("shirt")}
+            >
+              Casual Shirts
+            </button>
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "t-shirt"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("t-shirt")}
+            >
+              T-Shirt/Polo
+            </button>
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "hoodie"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("hoodie")}
+            >
+              Hoodie
+            </button>
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "suit"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("suit")}
+            >
+              Suits
+            </button>
+            <button
+              className={`my-2 py-2 text-sm font-medium rounded ${
+                activeButton === "watch"
+                  ? "z-10 bg-gray-600 text-white ring-2 ring-orange-400"
+                  : "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border border-gray-400 shadow"
+              }`}
+              onClick={() => handleButtonClick("watch")}
+            >
+              Watch
+            </button>
+          </div>
+        </div>
+
+        <ProductCard cardInfo={cardInfo} activeButton={activeButton} />
       </div>
       <Footer />
     </>
