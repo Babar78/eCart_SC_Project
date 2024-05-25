@@ -8,11 +8,13 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 function CartItem({ item }) {
   const cartItems = useSelector((state) => state.cart.cartItems);
+
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
   // Update quantity if the same product is already in the cart
   useEffect(() => {
+
     const cartItem = cartItems.find((cartItem) => cartItem.id === item.id);
     if (cartItem) {
       setQuantity(cartItem.quantity);
@@ -34,7 +36,12 @@ function CartItem({ item }) {
   };
 
   return (
-    <div className="flex bg-gray-100 items-center m-2 border shadow">
+    <div className="flex bg-gray-100 items-center m-2 border shadow relative">
+      <div className="absolute top-2 right-2">
+        <IconButton size="small" onClick={handleRemoveItem}>
+          <CancelIcon />
+        </IconButton>
+      </div>
       <div
         className="p-2 md:p-3"
         style={{
@@ -42,40 +49,23 @@ function CartItem({ item }) {
           maxWidth: "250px",
         }}
       >
-        <img src={item.image} alt="" />
+        <img src={item.thumbnail} alt="product" className="w-full object-cover object-center h-[200px] rounded-lg" />
       </div>
-      <div className="md:px-10 px-2 sm:px-8 my-2 w-full mr-20">
-        <div className="flex justify-end pr-2 mb-3">
-          <IconButton size="small" onClick={handleRemoveItem}>
-            <CancelIcon />
-          </IconButton>
-        </div>
-        <h1 className="font-bold md:text-3xl text-lg">{item.description}</h1>
-        <div className="sm:flex my-8 sm:flex-wrap justify-between">
+      <div className="md:px-10 px-2 sm:px-8 w-[75%] py-5 space-y-4">
+        <h1 className="font-bold md:text-3xl text-lg">{item.title}</h1>
+        <div className="space-y-2">
           <p className="text-gray-400 text-sm md:text-medium lg:text-xl font-medium">
-            Style: <span className="text-black font-normal">{item.style}</span>
+            Company: <span className="text-black font-normal">{item.brand}</span>
           </p>
           <p className="text-gray-400 text-sm md:text-medium lg:text-xl font-medium">
-            Size: <span className="text-black font-normal">{item.size}</span>
-          </p>
-          <p className="text-gray-400 text-sm md:text-medium lg:text-xl font-medium">
-            Color: <span className="text-black font-normal">{item.color}</span>
+            View Certification
           </p>
         </div>
-        <div className="flex justify-between items-center mt-4 md:mt-10">
-          <div className="flex bg-gray-200 items-center p-1 sm:p-2">
-            <IconButton size="small" onClick={() => handleQuantityChange(-1)}>
-              <RemoveIcon />
-            </IconButton>
-            <div className="flex">
-              <p className="text-gray-400 font-bold">Quantity:</p> {quantity}
-            </div>
-            <IconButton size="small" onClick={() => handleQuantityChange(1)}>
-              <AddIcon />
-            </IconButton>
-          </div>
+        <div className="flex justify-between items-center">
           <p className="font-bold text-3xl text-gray-900 ml-4 sm:ml-0">
-            {item.price}
+            Price: <span className="text-gray-500 font-normal text-[24px]">
+              {item.price}/-
+            </span>
           </p>
         </div>
       </div>

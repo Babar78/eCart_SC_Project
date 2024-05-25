@@ -19,7 +19,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 import Searchbar from "../Searchbar/Searchbar";
-import logo from "../../assets/Logo/eCart-Logo.png";
+import logo from "../../assets/Logo/TruMobile-logo.png";
 
 import { Link } from "react-router-dom";
 
@@ -56,7 +56,7 @@ function Navbar() {
 
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
-  
+
     // Check if username and email exist in local storage
     if (storedUserId) {
       setUsername(localStorage.getItem("username"));
@@ -105,7 +105,7 @@ function Navbar() {
         <Toolbar disableGutters>
           <Link to={"/"}>
             <div className="hover:cursor-pointer">
-              <img src={logo} alt="Logo" className="md:flex hidden w-4/5" />
+              <img src={logo} alt="Logo" className="md:flex hidden scale-150" />
             </div>
           </Link>
 

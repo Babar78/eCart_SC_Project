@@ -10,7 +10,7 @@ function DrawerItem({ item }) {
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  
+
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -37,43 +37,29 @@ function DrawerItem({ item }) {
   };
 
   return (
-    <div className="flex bg-gray-100 items-center m-2 border shadow">
+    <div className="flex bg-gray-100 items-center m-2 border shadow relative">
       <div className="p-2" style={{ minWidth: "200px" }}>
-        <img src={item.image} alt="Item Selected" />
+        <img src={item.thumbnail} alt="Item Selected" className="w-full object-cover object-center h-[200px] rounded-lg" />
       </div>
-      <div className="w-full">
-        <div className="flex justify-end pr-2 mb-3">
-          <IconButton size="small" onClick={handleRemoveItem}>
-            <CancelIcon />
-          </IconButton>
-        </div>
-        <h1 className="font-bold">{item.description}</h1>
+      <div className="absolute top-1 right-0">
+        <IconButton size="small" onClick={handleRemoveItem}>
+          <CancelIcon />
+        </IconButton>
+      </div>
+      <div className="w-1/2">
+
+        <h1 className="font-bold">{item.title}</h1>
         <div className="my-4">
           <p className="text-gray-400 text-medium font-medium">
-            Style:
-            <span className="text-black font-normal">{item.style}</span>
+            Company:
+            <span className="text-black font-normal">{item.brand}</span>
           </p>
           <p className="text-gray-400 text-medium font-medium">
-            Size: <span className="text-black font-normal">{item.size}</span>
-          </p>
-          <p className="text-gray-400 text-medium font-medium">
-            Color:
-            <span className="text-black font-normal">{item.color}</span>
+            Rating: <span className="text-black font-normal">{item.rating}</span>
           </p>
         </div>
         <div className="flex justify-between items-center px-1 mb-2">
-          <div className="flex bg-gray-200 items-center p-1">
-            <IconButton size="small" onClick={() => handleQuantityChange(-1)}>
-              <RemoveIcon />
-            </IconButton>
-            <div className="flex">
-              <p className="text-gray-400 font-bold">Quantity:</p> {quantity}
-            </div>
-            <IconButton size="small" onClick={() => handleQuantityChange(1)}>
-              <AddIcon />
-            </IconButton>
-          </div>
-          <p className="font-bold text-2xl text-gray-900">{item.price}</p>
+          <p className="font-bold text-2xl text-gray-900">{item.price}/-</p>
         </div>
       </div>
     </div>

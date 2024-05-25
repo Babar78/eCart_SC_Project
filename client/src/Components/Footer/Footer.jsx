@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/Logo/eCart-Logo-white.png";
+import Logo from "../../assets/Logo/logo-white.png";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -24,17 +24,16 @@ function Footer() {
               title="Company"
               className="inline-flex items-center"
             >
-              <img src={Logo} alt="Logo" className="object-fit w-1/2" />
+              <img src={Logo} alt="Logo" className="object-fit" />
             </a>
             <div className="mt-4 lg:max-w-sm">
               <p className="text-sm text-gray-600">
-                Shop the latest trends in clothing, shoes, and more at eCart.
-                Find affordable, stylish products to elevate your wardrobe.
+                Explore the latest in mobile technology with TruMobiles. Discover a wide selection of smartphones, tablets, and accessories to enhance your digital lifestyle.
               </p>
               <p className="mt-4 text-sm text-gray-600">
-                Enjoy fast shipping, secure payments, and exceptional customer
-                service. Elevate your style with eCart today!
+                Benefit from swift delivery, secure transactions, and unparalleled customer support. Elevate your mobile experience with TruMobiles today!
               </p>
+
             </div>
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
@@ -48,7 +47,7 @@ function Footer() {
                     to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Women's Clothing
+                    Iphone
                   </Link>
                 </li>
                 <li>
@@ -56,7 +55,7 @@ function Footer() {
                     to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Men's Clothing
+                    Samsung
                   </Link>
                 </li>
                 <li>
@@ -64,7 +63,7 @@ function Footer() {
                     to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Shoes
+                    Oppo
                   </Link>
                 </li>
                 <li>
@@ -72,7 +71,7 @@ function Footer() {
                     to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Accessories
+                    Redmi
                   </Link>
                 </li>
                 <li>
@@ -80,7 +79,7 @@ function Footer() {
                     to="/products"
                     className="transition-colors duration-300 text-white hover:text-gray-500"
                   >
-                    Beauty
+                    Xioami
                   </Link>
                 </li>
               </ul>
@@ -151,7 +150,7 @@ function Footer() {
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
           <p className="text-sm text-gray-100">
-            © Copyright 2020 Lorem Inc. All rights reserved.
+            © Copyright 2024 TruMobiles. All rights reserved.
           </p>
           <div className="flex items-center mt-4 space-x-4 sm:mt-0">
             <a
